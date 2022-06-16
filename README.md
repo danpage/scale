@@ -40,43 +40,15 @@ that is
 
 <!--- -------------------------------------------------------------------- --->
 
-## Content
-
-#### Prepare pre-requisites
-
-Some content is stored using
-[Git Large File Storage (LFS)](http://git-lfs.github.com/):
-it makes sense to install this first, otherwise that content appears
-as a set of pointers to data vs. the data itself.
-
-#### Prepare     repository
-
-Use
-
-```
-git clone http://www.github.com/danpage/scale.git
-```
-
-to clone the repository, then
-
-```
-cd scale ; export SCALE="${PWD}"
-```
-
-to fix the working directory.
-Note that, either way, the associated path is denoted by 
-`${SCALE}` 
-from here on.  
-
-#### Prepare     submodules
+## Quickstart
 
 Over time, SCALE has evolved in different directions; the content is
-therefore captured by several offshoots.  Each is motivated as above, 
-but differ in terms of their focus and content:
+therefore captured by material in several repositories.  Each one is 
+motivated as above, but differ in terms of their focus and content:
 
 - The `${SCALE}/sw`
   directory houses the
-  [software-oriented offshoot](http://www.github.com/danpage/scale-sw):
+  [software-oriented material](http://www.github.com/danpage/scale-sw):
   the goal is to provide a set of high-level,
   [CTF](http://en.wikipedia.org/wiki/Capture_the_flag#Computer_security)-like
   exercises that offer controlled, simulated environments in which to 
@@ -84,7 +56,7 @@ but differ in terms of their focus and content:
    
 - The `${SCALE}/hw`
   directory houses the 
-  [hardware-oriented offshoot](http://www.github.com/danpage/scale-hw):
+  [hardware-oriented material](http://www.github.com/danpage/scale-hw):
   the goal is to provide a set of  low-level,
   concrete hardware platforms that are tailored toward learning about
   [side-channel attacks](http://en.wikipedia.org/wiki/Side-channel_attack)
@@ -93,85 +65,44 @@ but differ in terms of their focus and content:
    
 - The `${SCALE}/data` 
   directory houses the 
-  [    data-oriented offshoot](http://www.github.com/danpage/scale-data):
+  [    data-oriented material](http://www.github.com/danpage/scale-data):
   the goal is to provide some (pre-acquired) data sets, each relating
-  to one of the platforms in the hardware-oriented offshoot but that 
+  to one of the platforms in the hardware-oriented material but that 
   can be used without physical access to the associated hardware.
    
-These offshoots are organised as
+These are organised as
 [submodules](http://www.git-scm.com/docs/git-submodule),
 which allows their content to be selectively populated.  This can be
 important: the size (and so also download time) of the data-oriented 
 offshoot is significant, for example, and it will not be applicable 
-in all contexts or to all users.  As such, *either*
+in all contexts or to all users.  
 
-1. populate *all*  content via
+- Clone the repo.
 
-   ```
-   git submodule update --init --recursive
-   ```
+  ```sh
+  git clone https://github.com/danpage/scale.git ./scale
+  cd ./scale
+  ```
 
-   *or*
+- *Either*
 
-2. populate *some* content via
-    
+  - populate *all*  content via
 
-   ```
-   git submodule update --init --recursive sw
-   git submodule update --init --recursive hw
-   git submodule update --init --recursive data
-   ```
+    ```sh
+    git submodule update --init --recursive
+    ```
+
+    *or*
+
+  - populate *some* content via  
+
+    ```sh
+    git submodule update --init --recursive sw
+    git submodule update --init --recursive hw
+    git submodule update --init --recursive data
+    ```
    
-   selectively removing commands to reflect the content you need.
-
-<!--- -------------------------------------------------------------------- --->
-
-## FAQs
-
-- **"I've found a bug/typo in or have suggestion/improvement for X"**
-  I'm always interested in improving SCALE: let us know, or even better
-  create and send a pull request, and I'll try to integrate the change
-  (if/when appropriate) as soon as possible.
-
-- **"I've used SCALE for X!"**
-  If you want to make reference to 
-  SCALE
-  (e.g., in the acknowledgements of a paper or report), it'd be *really*
-  helpful if you'd use the following standard BiBTeX entry
-
-  ```
-  @misc{scale,
-    author = {D. Page},
-    title  = {{SCALE}: {S}ide-{C}hannel {A}ttack {L}ab. {E}xercises},
-    url    = {http://www.github.com/danpage/scale}
-  }
-  ```
-
-  since this will maximise the cases where it's picked up by automated
-  citation indexes.
-
-- **"Don't you mean *implementation* attack, not *side-channel* attack?"**
-  Yes: for sure the content covers a broader range of concepts than the
-  strict definition of a side-channel (or information leakage) attack.
-  Originally SCALE was motivated by the challenge of scaling a research
-  lab. to suit teaching, and, however (in)accurate, it just stuck.  But
-  IMPALE would have been a great acronym in hindsight ...
-
-<!--- -------------------------------------------------------------------- --->
-
-## TODOs
-
-- In the long term, it seems sensible to
-  harness various functionality offered by
-  [GitHub](http://www.github.com),
-  e.g., by
-
-  - moving the (increasingly voluminous) content in various `README.md`
-    into a more easily maintained
-    [wiki](http://help.github.com/articles/about-github-wikis),
-  - taking advantage of some form of
-    [Continuous Integration (CI)](http://www.github.com/marketplace/category/continuous-integration),
-    to automatically build and test elements of the project.
+    selectively removing commands to reflect the content you need.
 
 <!--- -------------------------------------------------------------------- --->
 
