@@ -44,18 +44,19 @@ that is
 
 Over time, SCALE has evolved in different directions; the content is
 therefore captured by material in several repositories.  Each one is 
-motivated as above, but differ in terms of their focus and content:
+organised as a
+[submodules](http://www.git-scm.com/docs/git-submodule):
 
-- The `${SCALE}/sw`
-  directory houses the
+- The `sw`
+  sub-module houses the
   [software-oriented material](http://www.github.com/danpage/scale-sw):
   the goal is to provide a set of high-level,
   [CTF](http://en.wikipedia.org/wiki/Capture_the_flag#Computer_security)-like
   exercises that offer controlled, simulated environments in which to 
   learn about various attack techniques.
    
-- The `${SCALE}/hw`
-  directory houses the 
+- The `hw`
+  sub-module houses the 
   [hardware-oriented material](http://www.github.com/danpage/scale-hw):
   the goal is to provide a set of  low-level,
   concrete hardware platforms that are tailored toward learning about
@@ -63,19 +64,16 @@ motivated as above, but differ in terms of their focus and content:
   based on
   [power analysis](http://en.wikipedia.org/wiki/Power_analysis).
    
-- The `${SCALE}/data` 
-  directory houses the 
+- The `data` 
+  sub-module houses the 
   [    data-oriented material](http://www.github.com/danpage/scale-data):
   the goal is to provide some (pre-acquired) data sets, each relating
   to one of the platforms in the hardware-oriented material but that 
   can be used without physical access to the associated hardware.
-   
-These are organised as
-[submodules](http://www.git-scm.com/docs/git-submodule),
-which allows their content to be selectively populated.  This can be
-important: the size (and so also download time) of the data-oriented 
-offshoot is significant, for example, and it will not be applicable 
-in all contexts or to all users.  
+
+This means each one is motivated per the above, but differs in terms 
+of focus and content.  Since they remain somewhat independent, they
+can be selectively populated and used:
 
 - Clone the repo.
 
@@ -103,6 +101,10 @@ in all contexts or to all users.
     ```
    
     selectively removing commands to reflect the content you need.
+
+This ability can be important: the size (and thus download time) of 
+the data-oriented material is significant, for example, and it will 
+not be applicable in all contexts or to all users.  
 
 <!--- -------------------------------------------------------------------- --->
 
